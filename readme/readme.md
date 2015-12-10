@@ -15,7 +15,7 @@
 - Allow user to specify types of beverages
 
 #### My Added Functionality  
-- Download fresh data from [pub.data.gov.bc.ca](pub.data.gov.bc.ca)
+- Download fresh data from [pub.data.gov.bc.ca](http://pub.data.gov.bc.ca)
 - Create histogram of frequency distribution of price
 - Allow user to specify alcohol content range
 - Allow user to _change price range_ to include expensive options 
