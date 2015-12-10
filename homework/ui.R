@@ -2,7 +2,8 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 library(shinyjs)
-bcl <- read.csv("bcl-data.csv", stringsAsFactors = FALSE)
+bcl <- read.csv("http://pub.data.gov.bc.ca/datasets/176284/BC_Liquor_Store_Product_Price_List.csv",stringsAsFactors = FALSE)
+# bcl <- read.csv("bcl-data.csv", stringsAsFactors = FALSE)
 fluidPage(theme = "bootstrap.css",
 					useShinyjs(),
 	titlePanel(img(src = "logo_bc_liquor_stores.png")),
