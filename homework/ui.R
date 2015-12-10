@@ -6,6 +6,7 @@ bcl <- read.csv("http://pub.data.gov.bc.ca/datasets/176284/BC_Liquor_Store_Produ
 # bcl <- read.csv("bcl-data.csv", stringsAsFactors = FALSE)
 fluidPage(theme = "bootstrap.css",
 					useShinyjs(),
+					tags$head(tags$title("Liquor Store App")),
 	titlePanel(img(src = "logo_bc_liquor_stores.png")),
 	h4("\"Filter Yo\' Beverage!\""),
 	sidebarLayout(
