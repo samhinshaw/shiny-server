@@ -26,6 +26,8 @@
 - Added custom CSS
 - Added BC Liquor Stores logo to site
 - Separated app into `ui.R`, `server.R`, and `global.R`
+- Tried to render number of hits with `textOutput()`, `renderText()`, and `nrow()`  
+    + Was not successful, and unfortunately do not have enough time to debug errors introduced.
 
 #### Deployed My Own Web Server  
 - Deployed DigitalOcean server with `nginx` webserver
@@ -38,3 +40,4 @@
 - Created [custom 404 error page](http://hinshaw.ddns.net/nothinghere)
 - Created [custom 50x error page](http://hinshaw.ddns.net/testing)
 - Set up `nginx` server to serve [static content (i.e. images)](http://hinshaw.ddns.net/images/canada-sorry.png)
+- Added [readme to website](http://hinshaw.ddns.net/shiny/readme/)
