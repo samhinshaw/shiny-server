@@ -1,4 +1,10 @@
-# write.csv(bcl, "updated_bcl.csv", row.names = FALSE)
+library(shiny)
+library(ggplot2)
+library(dplyr)
+library(scales)
+library(httr)
+# bcl <- read.csv("bcl-data.csv", stringsAsFactors = FALSE)
+bcl <- read.csv("http://pub.data.gov.bc.ca/datasets/176284/BC_Liquor_Store_Product_Price_List.csv",stringsAsFactors = FALSE)
 products <- c("BEER", "REFRESHMENT BEVERAGE", "SPIRITS", "WINE")
 bcl <- dplyr::filter(bcl, PRODUCT_CLASS_NAME %in% products) %>%
 	dplyr::select(-PRODUCT_TYPE_NAME, -PRODUCT_SKU_NO, -PRODUCT_BASE_UPC_NO,
@@ -97,55 +103,5 @@ function(input, output, session) {
 			}
 		}
 		filtered
-	})
-	output$numberresults <- renderText({
-		if(input$expensive == "No"){
-			if(input$sortup == "Ascending"){
-				filtered <-
-					bcl %>% 
-					arrange_(input$sortby) %>%
-					filter(Alcohol_Content >= input$alcoholInput[1],
-								 Alcohol_Content <= input$alcoholInput[2],
-								 Price >= input$priceInput2[1],
-								 Price <= input$priceInput2[2],
-								 Type == input$typeInput,
-								 Country == input$countryInput)
-			}
-			else if(input$sortup == "Descending"){
-				filtered <-
-					bcl %>% 
-					arrange_(paste0(c('desc(', input$sortby, ')'))) %>%
-					filter(Alcohol_Content >= input$alcoholInput[1],
-								 Alcohol_Content <= input$alcoholInput[2],
-								 Price >= input$priceInput2[1],
-								 Price <= input$priceInput2[2],
-								 Type == input$typeInput,
-								 Country == input$countryInput)
-			}
-		} else if(input$expensive == "Yes"){
-			if(input$sortup == "Ascending"){
-				filtered <-
-					bcl %>% 
-					arrange_(input$sortby) %>%
-					filter(Alcohol_Content >= input$alcoholInput[1],
-								 Alcohol_Content <= input$alcoholInput[2],
-								 Price >= input$priceInput[1],
-								 Price <= input$priceInput[2],
-								 Type == input$typeInput,
-								 Country == input$countryInput)
-			}
-			else if(input$sortup == "Descending"){
-				filtered <-
-					bcl %>% 
-					arrange_(paste0(c('desc(', input$sortby, ')'))) %>%
-					filter(Alcohol_Content >= input$alcoholInput[1],
-								 Alcohol_Content <= input$alcoholInput[2],
-								 Price >= input$priceInput[1],
-								 Price <= input$priceInput[2],
-								 Type == input$typeInput,
-								 Country == input$countryInput)
-			}
-		}
-		nrow(filtered)
 	})
 }

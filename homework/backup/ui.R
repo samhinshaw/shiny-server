@@ -1,5 +1,12 @@
+library(shiny)
+library(ggplot2)
+library(dplyr)
+library(shinyjs)
+bcl <- read.csv("http://pub.data.gov.bc.ca/datasets/176284/BC_Liquor_Store_Product_Price_List.csv",stringsAsFactors = FALSE)
+# bcl <- read.csv("bcl-data.csv", stringsAsFactors = FALSE)
 fluidPage(theme = "bootstrap.css",
 					useShinyjs(),
+					tags$head(tags$title("Liquor Store App")),
 	titlePanel(img(src = "logo_bc_liquor_stores.png")),
 	h4("\"Filter Yo\' Beverage!\""),
 	sidebarLayout(
@@ -25,9 +32,7 @@ fluidPage(theme = "bootstrap.css",
 		),
 		mainPanel(
 			plotOutput("prettysweetplot"), 
-			br(), 
-			p("There are ", textOutput("numberresults"), "available options given your selctions."), 
-			br(),
+			br(), br(),
 			DT::dataTableOutput("results"), 
 			hr(),
 			"CSS Theme \"Cosmo\" by", a("Thomas Park", href="http://github.com/thomaspark", target="_blank"), "at", a("bootswatch.com", href="http://bootswatch.com", target="_blank")

@@ -1,0 +1,6 @@
+library(shiny)
+library(shinyjs)
+library(ggplot2)
+library(dplyr)
+library(scales)
+bcl <- read.csv("http://pub.data.gov.bc.ca/datasets/176284/BC_Liquor_Store_Product_Price_List.csv",stringsAsFactors = FALSE)
