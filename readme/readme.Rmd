@@ -1,0 +1,47 @@
+---
+title: 'Homework 11: Create a Shiny App'
+output: 
+  html_document:
+    keep_md: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+### First and foremost, [my shiny app](http://hinshaw.ddns.net/shiny/homework)!
+
+*******
+
+### App Functionality
+#### Added In-Class
+- Import BC liquor store data  
+- Allow user to specify price range
+- Allow user to specify countries of origin
+- Allow user to specify types of beverages
+
+#### My Added Functionality  
+- Download fresh data from [pub.data.gov.bc.ca](pub.data.gov.bc.ca)
+- Create histogram of frequency distribution of price
+- Allow user to specify alcohol content range
+- Allow user to _change price range_ to include expensive options 
+    + Accomplished using `conditionalPanel` and `if`, `else if`, `else` statements
+- Allow user to sort results table
+- Include better-looking table using `DT::dataTableOutput()`
+- Included color scheme for different alcohol types
+- Added custom CSS
+- Added BC Liquor Stores logo to site
+- Separated app into `ui.R`, `server.R`, and `global.R`
+
+#### Deployed My Own Web Server  
+- Deployed DigitalOcean server with `nginx` webserver
+- Installed R on webserver
+- Installed RStudio server on webserver
+- Installed shiny server on webserver
+- Ported shiny app to shiny server
+- Created [custom URL](http://hinshaw.ddns.net/) with Dynamic DNS
+- Created [custom landing page](http://hinshaw.ddns.net/)
+- Created [custom 404 error page](http://hinshaw.ddns.net/nothinghere)
+- Created [custom 50x error page](http://hinshaw.ddns.net/testing)
+- Set up `nginx` server to serve [static content (i.e. images)](http://hinshaw.ddns.net/images/canada-sorry.png)
